@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 interface LibraryProps {
   onAccess?: () => void
@@ -188,10 +189,12 @@ export default function Library({ onAccess }: LibraryProps) {
                 >
                   {/* Thumbnail */}
                   <div className="relative aspect-video bg-pixel-black overflow-hidden">
-                    <img
+                    <Image
                       src={video.thumbnail}
                       alt={video.title}
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                      fill
+                      className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                      unoptimized
                     />
                     {/* Duration badge */}
                     <span className="absolute bottom-2 right-2 px-2 py-0.5 bg-pixel-black/90 font-pixel text-[8px] text-pixel-cream">
