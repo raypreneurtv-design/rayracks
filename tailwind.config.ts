@@ -45,6 +45,7 @@ const config: Config = {
           brown: '#8b4513',
           wood: '#deb887',
           cash: '#85bb65',         // Dollar bill green
+          cyan: '#00bcd4',         // Cyan accent
         },
       },
       fontFamily: {

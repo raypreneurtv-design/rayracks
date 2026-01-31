@@ -4,9 +4,8 @@ import { useState, useEffect } from 'react'
 
 const navItems = [
   { label: 'HOME', href: '#home', icon: '🏠' },
-  { label: 'BOOKS', href: '#projects', icon: '📚' },
-  { label: 'SKILLS', href: '#skills', icon: '⚔️' },
-  { label: 'CONTACT', href: '#contact', icon: '📮' },
+  { label: 'LIBRARY', href: '#library', icon: '📚' },
+  { label: 'SOCIALS', href: '#socials', icon: '🔗' },
 ]
 
 export default function PixelNav() {

@@ -141,6 +141,19 @@ body {
   background: var(--pixel-magenta);
 }
 
+.pixel-btn-cyan {
+  background: #00bcd4;
+  color: var(--pixel-black);
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Library bookshelf background */
 .library-bg {
   background:

@@ -143,7 +143,6 @@ export default function EmailPopup({ onClose, isOpen }: EmailPopupProps) {
 // Hook to manage popup state
 export function useEmailPopup() {
   const [isOpen, setIsOpen] = useState(false)
-  const [hasInteracted, setHasInteracted] = useState(false)
   const [hasShown, setHasShown] = useState(false)
 
   const showPopup = useCallback(() => {
@@ -157,22 +156,14 @@ export function useEmailPopup() {
     setIsOpen(false)
   }, [])
 
-  // Show after 1 minute
+  // Show after 3 minutes
   useEffect(() => {
     const timer = setTimeout(() => {
       showPopup()
-    }, 60000) // 60 seconds
+    }, 180000) // 3 minutes
 
     return () => clearTimeout(timer)
   }, [showPopup])
 
-  // Track interaction - show on scroll or click attempts
-  const handleInteraction = useCallback(() => {
-    if (!hasInteracted && !hasShown) {
-      setHasInteracted(true)
-      showPopup()
-    }
-  }, [hasInteracted, hasShown, showPopup])
-
-  return { isOpen, showPopup, closePopup, handleInteraction }
+  return { isOpen, showPopup, closePopup, hasShown }
 }

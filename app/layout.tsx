@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'RAYRACKS.DEV // STACKING AUTOMATIONS',
-  description: 'Welcome to the rack room. I build AI automations that print money. Press START to get this bread.',
-  keywords: ['AI', 'Automation', 'Developer', '8-bit', 'Retro', 'Money', 'Racks'],
-  authors: [{ name: 'Ray' }],
+  title: 'RAYRACKS.DEV // THE DEV ROOM',
+  description: "Ray Racks' Dev Room - Building automations for business and personal life. Check out the latest projects and content.",
+  keywords: ['AI', 'Automation', 'Developer', '8-bit', 'Retro', 'n8n', 'Claude'],
+  authors: [{ name: 'Ray Racks' }],
   openGraph: {
-    title: 'RAYRACKS.DEV // STACKING AUTOMATIONS',
-    description: 'I build AI automations that print money. Ship fast. Stack racks.',
+    title: 'RAYRACKS.DEV // THE DEV ROOM',
+    description: 'Building automations for business and personal life. Check out the latest projects and content.',
     type: 'website',
   },
 }

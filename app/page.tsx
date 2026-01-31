@@ -4,31 +4,23 @@ import { useEffect } from 'react'
 import PixelNav from '@/components/PixelNav'
 import HeroArcade from '@/components/HeroArcade'
 import AboutQuest from '@/components/AboutQuest'
-import BookshelfLibrary from '@/components/BookshelfLibrary'
-import SkillsInventory from '@/components/SkillsInventory'
-import ContactTerminal from '@/components/ContactTerminal'
+import Library from '@/components/Library'
+import SocialsFooter from '@/components/SocialsFooter'
 import EmailPopup, { useEmailPopup } from '@/components/EmailPopup'
 
 export default function Home() {
-  const { isOpen, closePopup, handleInteraction } = useEmailPopup()
+  const { isOpen, closePopup, showPopup, hasShown } = useEmailPopup()
 
-  // Track scroll for email popup trigger
+  // Scroll to top on page load
   useEffect(() => {
-    let scrollCount = 0
-    const handleScroll = () => {
-      scrollCount++
-      if (scrollCount > 3) {
-        handleInteraction()
-      }
+    window.scrollTo(0, 0)
+  }, [])
+
+  // Handle library access - show popup if not subscribed
+  const handleLibraryAccess = () => {
+    if (!hasShown) {
+      showPopup()
     }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [handleInteraction])
-
-  // Track click attempts on protected content
-  const handleProtectedClick = () => {
-    handleInteraction()
   }
 
   return (
@@ -48,23 +40,14 @@ export default function Home() {
         <div className="pixel-divider" />
       </div>
 
-      <div onClick={handleProtectedClick}>
-        <BookshelfLibrary />
-      </div>
+      <Library onAccess={handleLibraryAccess} />
 
       {/* Pixel divider */}
       <div className="retro-container">
         <div className="pixel-divider" />
       </div>
 
-      <SkillsInventory />
-
-      {/* Pixel divider */}
-      <div className="retro-container">
-        <div className="pixel-divider" />
-      </div>
-
-      <ContactTerminal />
+      <SocialsFooter />
 
       {/* Email popup */}
       <EmailPopup isOpen={isOpen} onClose={closePopup} />
