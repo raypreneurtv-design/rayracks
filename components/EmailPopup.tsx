@@ -44,20 +44,20 @@ export default function EmailPopup({ onClose, isOpen }: EmailPopupProps) {
           boxShadow: '8px 8px 0 0 #0f0f23, inset 0 0 0 4px #16213e'
         }}
       >
-        {/* Close button */}
+        {/* Decorative corners - positioned below close button */}
+        <div className="absolute top-0 left-0 w-4 h-4 border-t-4 border-l-4 border-pixel-cyan pointer-events-none" />
+        <div className="absolute top-0 right-0 w-4 h-4 border-t-4 border-r-4 border-pixel-cyan pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-4 h-4 border-b-4 border-l-4 border-pixel-cyan pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-4 h-4 border-b-4 border-r-4 border-pixel-cyan pointer-events-none" />
+
+        {/* Close button - on top of decorative corners */}
         <button
           onClick={onClose}
-          className="absolute -top-3 -right-3 w-10 h-10 bg-pixel-magenta border-3 border-pixel-black flex items-center justify-center font-pixel text-xs hover:bg-pixel-orange transition-colors"
+          className="absolute -top-3 -right-3 w-10 h-10 bg-pixel-magenta border-3 border-pixel-black flex items-center justify-center font-pixel text-xs text-white hover:bg-red-600 transition-colors z-10"
           style={{ boxShadow: '2px 2px 0 0 #0f0f23' }}
         >
           X
         </button>
-
-        {/* Decorative corners */}
-        <div className="absolute top-0 left-0 w-4 h-4 border-t-4 border-l-4 border-pixel-cyan" />
-        <div className="absolute top-0 right-0 w-4 h-4 border-t-4 border-r-4 border-pixel-cyan" />
-        <div className="absolute bottom-0 left-0 w-4 h-4 border-b-4 border-l-4 border-pixel-cyan" />
-        <div className="absolute bottom-0 right-0 w-4 h-4 border-b-4 border-r-4 border-pixel-cyan" />
 
         {!isSubmitted ? (
           <>
@@ -79,8 +79,7 @@ export default function EmailPopup({ onClose, isOpen }: EmailPopupProps) {
             {/* Dialog box style message */}
             <div className="dialog-box mb-6">
               <p className="font-retro text-xl text-pixel-cream leading-relaxed">
-                &gt; Greetings, traveler! Want exclusive access to my builds,
-                automation secrets, and dev experiments?
+                I share fun automation ideas and interesting opportunities I stumble into. If you like smart stuff without the boring corporate tone, you can leave your email. 🤓
               </p>
               <span className="inline-block w-2 h-4 bg-pixel-money animate-blink ml-1" />
             </div>

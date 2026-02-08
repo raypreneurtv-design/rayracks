@@ -15,11 +15,11 @@ const RetroAnimation = dynamic(() => import('./RetroAnimation'), {
 })
 
 const questLog = [
-  { year: '2020', title: 'THE AWAKENING', desc: 'Discovered the power of automation in manufacturing', icon: '🏭', complete: true },
-  { year: '2022', title: 'SKILL ACQUIRED', desc: 'Learned Python and started building tools', icon: '🐍', complete: true },
-  { year: '2023', title: 'AI DISCOVERY', desc: 'Met Claude and unlocked AI-powered building', icon: '🤖', complete: true },
-  { year: '2024', title: 'RACK SEASON', desc: 'Started InsightOperator & stacking automations', icon: '💰', complete: true },
-  { year: '????', title: 'NEXT CHAPTER', desc: 'The grind continues...', icon: '🚀', complete: false },
+  { year: '????', title: 'COMING SOON', desc: 'New adventures await...', icon: '🔮', complete: false },
+  { year: '????', title: 'COMING SOON', desc: 'New adventures await...', icon: '🔮', complete: false },
+  { year: '????', title: 'COMING SOON', desc: 'New adventures await...', icon: '🔮', complete: false },
+  { year: '2024', title: 'GROWTH OPERATION', desc: 'Expanding reach and building systems', icon: '📈', complete: true },
+  { year: '2023', title: 'RACKS SEASON', desc: 'YouTube Reaction era begins', icon: '💰', complete: true },
 ]
 
 export default function AboutQuest() {
@@ -159,14 +159,14 @@ export default function AboutQuest() {
               ))}
             </div>
 
-            {/* Active quest */}
-            <div className="mt-8 p-4 md:p-5 bg-pixel-purple/20 border-3 border-pixel-purple border-dashed">
+            {/* Inactive quest status */}
+            <div className="mt-8 p-4 md:p-5 bg-pixel-purple/20 border-3 border-pixel-purple/50 border-dashed opacity-60">
               <div className="flex items-center gap-2 mb-2">
-                <span className="w-2 h-2 bg-pixel-money rounded-full animate-pulse" />
-                <span className="font-pixel text-[8px] md:text-[10px] text-pixel-money">ACTIVE QUEST</span>
+                <span className="w-2 h-2 bg-pixel-cream/40 rounded-full" />
+                <span className="font-pixel text-[8px] md:text-[10px] text-pixel-cream/50">STATUS</span>
               </div>
-              <p className="font-retro text-lg md:text-xl text-pixel-cream">
-                Building InsightOperator & documenting the journey on YouTube 💸
+              <p className="font-retro text-lg md:text-xl text-pixel-cream/60">
+                Inactive
               </p>
             </div>
           </div>

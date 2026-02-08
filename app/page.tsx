@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import PixelNav from '@/components/PixelNav'
 import HeroArcade from '@/components/HeroArcade'
 import AboutQuest from '@/components/AboutQuest'
@@ -10,6 +10,7 @@ import EmailPopup, { useEmailPopup } from '@/components/EmailPopup'
 
 export default function Home() {
   const { isOpen, closePopup, showPopup, hasShown } = useEmailPopup()
+  const [showSections, setShowSections] = useState(false)
 
   // Scroll to top on page load
   useEffect(() => {
@@ -23,31 +24,41 @@ export default function Home() {
     }
   }
 
+  // Called when HeroArcade content is ready (after loading)
+  const handleContentReady = () => {
+    setShowSections(true)
+  }
+
   return (
-    <main className="min-h-screen bg-pixel-dark">
+    <main className={`min-h-screen bg-pixel-dark ${!showSections ? 'overflow-hidden h-screen' : ''}`}>
       <PixelNav />
-      <HeroArcade />
+      <HeroArcade onContentReady={handleContentReady} />
 
-      {/* Pixel divider */}
-      <div className="retro-container">
-        <div className="pixel-divider" />
-      </div>
+      {/* Other sections only visible after pressing start */}
+      {showSections && (
+        <>
+          {/* Pixel divider */}
+          <div className="retro-container">
+            <div className="pixel-divider" />
+          </div>
 
-      <AboutQuest />
+          <AboutQuest />
 
-      {/* Pixel divider */}
-      <div className="retro-container">
-        <div className="pixel-divider" />
-      </div>
+          {/* Pixel divider */}
+          <div className="retro-container">
+            <div className="pixel-divider" />
+          </div>
 
-      <Library onAccess={handleLibraryAccess} />
+          <Library onAccess={handleLibraryAccess} />
 
-      {/* Pixel divider */}
-      <div className="retro-container">
-        <div className="pixel-divider" />
-      </div>
+          {/* Pixel divider */}
+          <div className="retro-container">
+            <div className="pixel-divider" />
+          </div>
 
-      <SocialsFooter />
+          <SocialsFooter />
+        </>
+      )}
 
       {/* Email popup */}
       <EmailPopup isOpen={isOpen} onClose={closePopup} />
